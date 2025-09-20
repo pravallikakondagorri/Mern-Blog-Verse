@@ -3,8 +3,17 @@ import {Link}from "react-router-dom"
 import { MailPlus } from 'lucide-react';
 import { RectangleEllipsis } from 'lucide-react';
 import { UserRound } from 'lucide-react';
+import { EyeOff } from 'lucide-react';
+import { Eye } from 'lucide-react';
+import { useState } from "react";
 
 const Format = () => {
+    const[password,setpassword]=useState(false);
+    const handlePassword=()=>{
+        setpassword((password)=>!password)
+    }
+
+
     return (
         <div className=" flex flex-col items-center  gap-5 ">
             <NavBar className="margin-top"/>
@@ -16,27 +25,28 @@ const Format = () => {
                     <p className="text-sm text-gray-600 font-semibold">Email Address</p>
                     <div className="relative">
                     <input type="text" className="border-1 border-gray-300 w-full rounded-xl px-15 py-2" placeholder="sample@gmail.com" ></input>
-                     <MailPlus className="absolute left-3 top-4" />
+                     <MailPlus className="absolute left-3 top-3" />
                 </div>
                 </div>
                 <div className="w-[95%]">
                     <p>Password</p>
                     <div className="relative">
                     <input type="text" className="border-1 border-gray-300  w-full rounded-xl px-15  py-2 " placeholder="sample123"></input>
-                      <RectangleEllipsis className="absolute left-3 top-4"/>
+                      <RectangleEllipsis className="absolute left-3 top-3"/>
+                      <p onClick={handlePassword}>{password?<Eye className="absolute right-3 top-3"/>:<EyeOff className="absolute right-3 top-3"/>}</p>
                     </div>
                 </div>
                 <div className="flex gap-3 justify-around">
                     <input type="checkbox" />
                     <div className="flex gap-15">
                         <p className="text-gray-600 font-semibold">Remember me</p>
-                        <p className="text-blue-500 font-semibold">Forgot Password?</p>
+                        <p className="text-blue-500 font-semibold cursor-pointer">Forgot Password?</p>
                     </div>
 
                 </div>
-                <div className="relative flex gap-3 justify-center">
+                <div className="relative flex gap-1 justify-center">
                     <button className="bg-blue-600 border-1 px-30 py-2 rounded-md items-center"> Sign In</button>
-                    <UserRound className="absolute left-3 top-4"/>
+                    <UserRound className="absolute left-21 top-3"/>
                     </div>
                     <div className="border-[1px] border-gray-300 w-[90%] mt-3"></div>
                     <div className="flex">
