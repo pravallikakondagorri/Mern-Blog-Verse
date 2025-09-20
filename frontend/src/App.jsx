@@ -3,15 +3,21 @@
 import SignIn from"./SignIn"
 import Format from"./Format"
 import Home from"./Home"
+import { Routes,Route } from "react-router-dom"
+import SignUp from "./SignUp"
 function App() {
   
   return (
-  
-      <div className="bg-gray-200 min-h-screen">
-       <SignIn/>
-       <Format/>
-       <Home/>
-    </div>
+  <Routes>
+<Route path="/SignUp"element={<SignUp/>}/>
+<Route path="/" element={<Format/>}/>
+<Route path="/Home" element={<Home/>}/>
+
+
+
+  </Routes>
+     
+       
   )
 }
 
